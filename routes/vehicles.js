@@ -1,32 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const vehicles = require('./data/vehicles.js')
+const vehiclesController = require('../controllers/vehicles.js')
 
 
-router.get('/vehicles', (req, res) => {
-  res.json(vehicles);
-})
 
-router.get('/vehicles/:id', (req, res) => {
-  const item = vehicles.find(i => i._id == req.params.id)
-  res.json(item);
-})
+router.get('/vehicles', vehiclesController.list)
 
-router.post('/vehicles', (req, res) => {
-  const car =  {
-    _id: vehicles[vehicles.length - 1]._id + 1,
-    year: req.body.year,
-    make: req.body.make,
-    model: req.body.model,
-    price: req.body.price,
-    km: req.body.km,
-    miles: req.body.miles,
-    fuel: req.body.fuel,
-    city: req.body.city,
-    isNew: req.body.isNew
-}
-  vehicles.push(car)
-  res.json(car);
-})
+router.get('/vehicles/:id', vehiclesController.show)
+
+router.post('/vehicles', vehiclesController.create)
 
 module.exports = router
