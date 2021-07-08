@@ -16,6 +16,7 @@ const create = (req, res) => {
   name: req.body.name,
   description: req.body.description,
   rating: req.body.rating,
+  imgUrl: req.body.imgUrl,
   price: req.body.price,
   category: req.body.category,
   reviews: []
