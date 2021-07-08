@@ -6,7 +6,7 @@ const list = (req, res) => {
   res.json(products);
 }
 const show = (req, res) => {
-  const item = products.find(i => i._id == req.params.id)
+  const item = products.find(product => product._id == req.params.id)
   res.json(item);
 }
 

@@ -7,7 +7,7 @@ const list = (req, res) => {
   res.json(vehicles);
 }
 const show = (req, res) => {
-  const item = vehicles.find(i => i._id == req.params.id)
+  const item = vehicles.find(car => car._id == req.params.id)
   res.json(item);
 }
 const create = (req, res) => {
