@@ -13,6 +13,7 @@ const show = (req, res) => {
 const create = (req, res) => {
   const car =  {
     _id: vehicles[vehicles.length - 1]._id + 1,
+    imgUrl: req.body.imgUrl,
     year: req.body.year,
     make: req.body.make,
     model: req.body.model,
